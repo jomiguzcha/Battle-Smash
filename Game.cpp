@@ -4,7 +4,7 @@ Game::Game() {
 	display = NULL;
 	timer = NULL;
 	event_queue = NULL;
-
+	image = NULL;
 	loop = true, redraw = false;
 }
 
@@ -48,14 +48,25 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 		al_destroy_display(display);
 		return -1;
 	}
+	al_init_image_addon();
+	image = al_load_bitmap("menu1.png");
+
+	if (!image) {
+		
+		return 0;
+	}
+
+	
 
 	//al_install_keyboard();
-	//al_init_image_addon();
+	
+
+	
 
 	al_register_event_source(event_queue, al_get_display_event_source(display));
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
 	al_clear_to_color(al_map_rgb(150, 110, 100));
-
+	//al_draw_bitmap(image, 0, 0, 0);
 	al_flip_display();
 
 	al_start_timer(timer);
@@ -83,11 +94,12 @@ void Game::gameLoop() {
 			redraw = false;
 
 			al_clear_to_color(al_map_rgb(155, 155, 100));
-
+			al_draw_bitmap(image, 0, 0, 0);
 			// Draw
 			//player.draw();
 
 			al_flip_display();
+			al_rest(2);
 		}
 
 	}
