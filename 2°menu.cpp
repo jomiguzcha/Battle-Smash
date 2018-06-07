@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     }
 
 
-    menu = al_load_bitmap("2-menu.png");
+    menu = al_load_bitmap("second1.png");
     menu1 = al_load_bitmap("jigly.png");
     menu2 = al_load_bitmap("kirby.png");
     menu3 = al_load_bitmap("link.png");
