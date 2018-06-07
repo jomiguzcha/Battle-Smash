@@ -14,12 +14,10 @@ int main(int argc, char **argv) {
 
 
     if (!al_init()) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to initialize allegro!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   return 0;
     }
 
     if (!al_init_image_addon()) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to initialize al_init_image_addon!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   return 0;
     }
 
@@ -27,7 +25,6 @@ int main(int argc, char **argv) {
     display = al_create_display(898, 798);
 
     if (!display) {
-	   al_show_native_message_box(display, "Error", "Error", "failed to create event_queue!\n", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   return 0;
     }
 
@@ -40,31 +37,26 @@ int main(int argc, char **argv) {
 
 
     if (!menu) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
     }
 
     if (!menu1) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
     }
 
     if (!menu2) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
     }
 
     if (!menu3) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
     }
 
     if (!menu4) {
-	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
     }
