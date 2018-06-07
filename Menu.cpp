@@ -4,12 +4,12 @@
 
 int main(int argc, char **argv) {
 
-    al_install_mouse;
+   
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_BITMAP  *menu1 = NULL;
     ALLEGRO_BITMAP  *menu2 = NULL;
     ALLEGRO_BITMAP  *menu3 = NULL;
-    ALLEGRO_EVENT_SOURCE *al_get_mouse_event_source(mouse);
+    ALLEGRO_EVENT_SOURCE *mouse = NULL;
     bool salir = false;
     
     if (!al_init()) {
@@ -21,14 +21,14 @@ int main(int argc, char **argv) {
 	   al_show_native_message_box(display, "Error", "Error", "Failed to initialize al_init_image_addon!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   return 0;
     }
-
+    al_install_mouse;
     display = al_create_display(898, 798);
    
     if (!display) {
 	   al_show_native_message_box(display, "Error", "Error", "Failed to initialize display!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   return 0;
     }
-
+    mouse = al_get_mouse_event_source;
     menu1 = al_load_bitmap("menu1.png");
     menu2 = al_load_bitmap("menu2.png");
     menu3 = al_load_bitmap("menu3.png");
