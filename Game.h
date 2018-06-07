@@ -2,6 +2,7 @@
 #include <allegro5/allegro_image.h>
 
 #include "Player.h"
+#Include "keyboard.h"
 
 class Game {
 private:
@@ -10,6 +11,7 @@ private:
 	ALLEGRO_EVENT_QUEUE *event_queue;
 	ALLEGRO_BITMAP  *image ;
 	
+	Keyboard keyboard;
 	Player player;
 
 
