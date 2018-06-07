@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_BITMAP  *menu = NULL;
     ALLEGRO_BITMAP  *menu1 = NULL;
-    ALLEGRO_BITMAP  *menu2= NULL;
+    ALLEGRO_BITMAP  *menu2 = NULL;
     ALLEGRO_BITMAP  *menu3 = NULL;
     ALLEGRO_BITMAP  *menu4 = NULL;
 
@@ -39,7 +39,31 @@ int main(int argc, char **argv) {
     menu4 = al_load_bitmap("tychus.png");
 
 
+    if (!menu) {
+	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+	   al_destroy_display(display);
+	   return 0;
+    }
+
     if (!menu1) {
+	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+	   al_destroy_display(display);
+	   return 0;
+    }
+
+    if (!menu2) {
+	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+	   al_destroy_display(display);
+	   return 0;
+    }
+
+    if (!menu3) {
+	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+	   al_destroy_display(display);
+	   return 0;
+    }
+
+    if (!menu4) {
 	   al_show_native_message_box(display, "Error", "Error", "Failed to load image!", NULL, ALLEGRO_MESSAGEBOX_ERROR);
 	   al_destroy_display(display);
 	   return 0;
@@ -54,13 +78,13 @@ int main(int argc, char **argv) {
     al_flip_display();
     al_rest(2);
 
-   
+
     al_destroy_display(display);
     al_destroy_bitmap(menu1);
     al_destroy_bitmap(menu2);
     al_destroy_bitmap(menu3);
     al_destroy_bitmap(menu4);
 
-    
+
     return 0;
 }
