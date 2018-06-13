@@ -1,0 +1,4 @@
+Añadir al Game
+
+al_install_mouse();
+al_register_event_source(event_queue, al_get_mouse_event_source());
