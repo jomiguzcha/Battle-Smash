@@ -2,3 +2,43 @@ Añadir al Game
 
 al_install_mouse();
 al_register_event_source(event_queue, al_get_mouse_event_source());
+
+int Game::createWindow(float FPS, int ancho, int alto) {
+	display = al_create_display(ancho, alto);
+	if (!display)
+	{
+		al_destroy_display(display);
+		return -1;
+	}
+	
+	timer = al_create_timer(1.0 / FPS);
+	if (!timer)
+	{
+		al_destroy_timer(timer);
+		al_destroy_display(display);
+		return -1;
+	}
+
+	event_queue = al_create_event_queue();
+	if (!event_queue)
+	{
+		al_destroy_event_queue(event_queue);
+		al_destroy_timer(timer);
+		al_destroy_display(display);
+		return -1;
+	}
+	
+	al_init_image_addon();
+	Menu m1;
+	m1.loadWindow();
+	
+	al_register_event_source(event_queue, al_get_display_event_source(display));
+	al_register_event_source(event_queue, al_get_timer_event_source(timer));
+	m1.Loop();
+	al_start_timer(timer);
+
+	return 0;
+}
+
+    
+ 
