@@ -4,6 +4,7 @@ Game::Game() {
 	display = NULL;
 	timer = NULL;
 	event_queue = NULL;
+	sample = NULL;
 	loop = true, redraw = false;
 }
 
