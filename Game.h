@@ -1,5 +1,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 #include "Player.h"
 #include "Menu.h"
 #include "Escenario.h"
@@ -9,6 +11,7 @@ protected:
 	ALLEGRO_DISPLAY * display;
 	ALLEGRO_TIMER *timer;
 	ALLEGRO_EVENT_QUEUE *event_queue;
+	ALLEGRO_SAMPLE *sample;
 	bool loop, redraw;
 
 public:
