@@ -26,7 +26,7 @@ SpriteL::SpriteL(){
 
 
 void SpriteL::draw(){
-    pintar();
+    
 }
 
 
