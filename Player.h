@@ -1,15 +1,13 @@
 #include "Sprite.h"
 #include "Keyboard.h"
 
-class Player :
-	public Sprite
-{
-private:
-	int health, moveSpeed;
+class Player : public Sprite, public Keyboard{
+	   private:
+		   int health, moveSpeed;
 
-public:
-	Player();
-	~Player();
+	   public:
+		   Player();
+		   ~Player();
 
-	void doLogic(Keyboard keyboard);
-};
+		   void doLogic(Keyboard keyboard);
+	   };
