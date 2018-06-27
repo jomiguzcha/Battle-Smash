@@ -4,7 +4,6 @@ Game::Game() {
 	display = NULL;
 	timer = NULL;
 	event_queue = NULL;
-	image = NULL;
 	loop = true, redraw = false;
 }
 
@@ -16,20 +15,17 @@ Game::~Game()
 }
 
 int Game::init() {
-	if (!al_init())
-	{
-		return -1;
+	if (!al_init()){
+	    return 0;
 	}
-
 	return 0;
 }
 
 int Game::createWindow(float FPS, int ancho, int alto) {
 	display = al_create_display(ancho, alto);
-	if (!display)
-	{
+	if (!display){
 		al_destroy_display(display);
-		return -1;
+		return 0;
 	}
 	
 	timer = al_create_timer(1.0 / FPS);
@@ -37,7 +33,7 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 	{
 		al_destroy_timer(timer);
 		al_destroy_display(display);
-		return -1;
+		return 0;
 	}
 
 	event_queue = al_create_event_queue();
@@ -46,29 +42,18 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 		al_destroy_event_queue(event_queue);
 		al_destroy_timer(timer);
 		al_destroy_display(display);
-		return -1;
-	}
-	al_init_image_addon();
-	image = al_load_bitmap("menu1.png");
-
-	if (!image) {
-		
 		return 0;
 	}
 
-	
-
-	//al_install_keyboard();
-	
-
+	al_init_image_addon();
+	al_install_keyboard();
 	
 
 	al_register_event_source(event_queue, al_get_display_event_source(display));
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
-	al_clear_to_color(al_map_rgb(150, 110, 100));
-	//al_draw_bitmap(image, 0, 0, 0);
-	al_flip_display();
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
 
+	
 	al_start_timer(timer);
 
 	return 0;
@@ -76,32 +61,11 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 
 void Game::gameLoop() {
 	while (loop) {
-		ALLEGRO_EVENT ev;
-		al_wait_for_event(event_queue, &ev);
-
-		if (ev.type == ALLEGRO_EVENT_TIMER)
-		{
-			//player.doLogic(keyboard);
-			redraw = true;
-		}
-		else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-		{
-			loop = false;
-		}
-
-		if (redraw && al_is_event_queue_empty(event_queue))
-		{
-			redraw = false;
-
-			al_clear_to_color(al_map_rgb(155, 155, 100));
-			al_draw_bitmap(image, 0, 0, 0);
-			// Draw
-			//player.draw();
-
-			al_flip_display();
-			al_rest(2);
-		}
-
+	    draw_menu1();
+	    Loop();
+	    draw_menu2();
+	    Loop2();
+	    loop = false;
 	}
 
 
