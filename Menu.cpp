@@ -46,12 +46,9 @@ Menu::~Menu(){
     al_destroy_event_queue(event_queue);
 }
 
-int Menu::init() {
-    if (!al_init()) {
-	   return 0;}
-}
 
-int Menu::createWindow() {
+
+int Menu::loadWindow() {
     display = al_create_display(ancho, alto);
 
     if (!display) {
