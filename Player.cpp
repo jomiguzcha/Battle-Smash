@@ -17,11 +17,7 @@ Player::Player(int healt, float moveSpeed, int interval, bool done, bool draw, b
 
 }
 void Player::load() {
-	for (int i = 0; i <= 20; i++) {
-		stringstream str;
-		str << "Sprites/" << i + 1 << ".jpg";
-		playerwalk[i] = al_load_bitmap(str.str().c_str());
-	}
+	
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
 	al_register_event_source(event_queue, al_get_display_event_source(display));
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
