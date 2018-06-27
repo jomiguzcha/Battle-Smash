@@ -7,7 +7,3 @@ Keyboard::Keyboard()
 		key[i] = false;
 	}
 }
-
-Keyboard::~Keyboard()
-{
-}
