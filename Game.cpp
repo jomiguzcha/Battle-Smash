@@ -66,6 +66,7 @@ void Game::gameLoop() {
 	    draw_menu2();
 	    Loop2();
 	    loop = false;
+	pintar();
 	}
 
 
