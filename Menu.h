@@ -28,8 +28,7 @@ class Menu
 		  Menu();
 		  ~Menu();
 
-		  int init();
-		  int createWindow();
+		  int loadWindow();
 		  void draw_menu1();
 		  void draw_menu2();
 		  void Loop();
