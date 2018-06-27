@@ -4,7 +4,7 @@ class Keyboard
 {
 public:
 	Keyboard();
-	~Keyboard(){};
+	~Keyboard() {};
 
 	bool key[4];
 };

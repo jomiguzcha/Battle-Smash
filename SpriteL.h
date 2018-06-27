@@ -1,6 +1,6 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-#include"Escenario.h"
+
 #include"Game.h"
 
 class SpriteL:public Escenario{

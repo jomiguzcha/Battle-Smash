@@ -26,7 +26,7 @@ SpriteJ::SpriteJ(){
 
 
 void SpriteJ::draw(){
-    
+   
 }
 
 
