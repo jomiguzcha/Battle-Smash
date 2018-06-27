@@ -51,7 +51,7 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 	al_install_audio(); 
 	al_init_acodec_addon();
 	al_reserve_samples(1);
-	sample = al_load_sample("Epic.wav");
+	sample = al_load_sample("Epic.ogg");
 	al_install_keyboard();
 	
 
