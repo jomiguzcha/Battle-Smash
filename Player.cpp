@@ -1,29 +1,45 @@
-#include <iostream>
-using namespace std;
-#include "Sprite.h"
-#include "Keyboard.h"
-#include<sstream>
-class Player : public Sprite, public Keyboard {
-private:
-	int health;
-	ALLEGRO_DISPLAY *display;
-	enum Direction { DOWN = 0, LEFT = 3, RIGHT = 6, UP = 9 };
-	int interval = 3;
-	ALLEGRO_BITMAP *playerwalk[12];
-	ALLEGRO_KEYBOARD_STATE keystate;
-	ALLEGRO_TIMER *timer = al_create_timer(1.0 / 60);
-	ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
-	bool done = false, draw = true, active = false;
-	float x = 10, y = 10, moveSpeed = 5;
-	int dir = DOWN, prevDir, index = 0;
+#include "Player.h"
 
-public:
-
-
-	Player(int, float, int , bool , bool , bool , float , float, int, int, int);
-	void load();
+Player::Player(int healt, float moveSpeed, int interval, bool done, bool draw, bool active, float x, float y, int dir, int prevDir, int index)
+{
+	this->health = healt;
+	this->moveSpeed = moveSpeed;
+	this->interval = interval;
+	this->done = done;
+	this->draw = draw;
+	this->active = active;
+	this->x = x;
+	this->y = y;
+	this->dir = dir;
+	this->prevDir = prevDir;
+	this->index = index;
 	
-	~Player();
 
-	void doLogic(Keyboard keyboard);
-};
+}
+void Player::load() {
+	for (int i = 0; i <= 20; i++) {
+		stringstream str;
+		str << "Sprites/" << i + 1 << ".jpg";
+		playerwalk[i] = al_load_bitmap(str.str().c_str());
+	}
+	al_register_event_source(event_queue, al_get_timer_event_source(timer));
+	al_register_event_source(event_queue, al_get_display_event_source(display));
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
+	al_start_timer(timer);
+}
+
+Player::~Player()
+{
+}
+
+void Player::doLogic(Keyboard keyboard)
+{
+	if (keyboard.key[UP])
+		y -= moveSpeed;
+	else if (keyboard.key[DOWN])
+		y += moveSpeed;
+	if (keyboard.key[LEFT])
+		x -= moveSpeed;
+	else if (keyboard.key[RIGHT])
+		x += moveSpeed;
+}
