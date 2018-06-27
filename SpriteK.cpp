@@ -26,7 +26,7 @@ SpriteK::SpriteK(){
 
 
 void SpriteK::draw(){
-    pintar();
+    
 }
 
 
