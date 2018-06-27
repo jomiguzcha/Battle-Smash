@@ -2,16 +2,13 @@
 #include <allegro5/allegro_image.h>
 #include "Player.h"
 #include "Menu.h"
+#include "Escenario.h"
 
-class Game:public Menu {
+class Game:public Menu,public Escenario{
 protected:
 	ALLEGRO_DISPLAY *display;
 	ALLEGRO_TIMER *timer;
 	ALLEGRO_EVENT_QUEUE *event_queue;
-	
-	//Keyboard keyboard;
-	//Player player;
-	
 	bool loop, redraw;
 
 public:
