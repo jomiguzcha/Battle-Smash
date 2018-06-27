@@ -26,7 +26,7 @@ SpriteM::SpriteM(){
 
 
 void SpriteM::draw(){
-    pintar();
+   
 }
 
 
