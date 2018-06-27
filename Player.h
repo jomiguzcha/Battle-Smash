@@ -1,10 +1,13 @@
 #include <iostream>
-#include "Sprite.h"
+#include "allegro5/allegro.h"
+#include "allegro5/allegro_image.h"
+#include "allegro5/allegro_native_dialog.h"
 #include "Keyboard.h"
 #include<sstream>
 
 using namespace std;
-class Player : public Sprite, public Keyboard {
+
+class Player : public Keyboard {
 private:
 	int health;
 	ALLEGRO_DISPLAY *display;
