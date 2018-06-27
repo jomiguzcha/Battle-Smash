@@ -1,8 +1,8 @@
 #include "Player.h"
 
-Player::Player(int healt, float moveSpeed, int interval, bool done, bool draw, bool active, float x, float y, int dir, int prevDir, int index)
+Player::Player(int health, float moveSpeed, int interval, bool done, bool draw, bool active, float x, float y, int dir, int prevDir, int index)
 {
-	this->health = healt;
+	this->health = health;
 	this->moveSpeed = moveSpeed;
 	this->interval = interval;
 	this->done = done;
