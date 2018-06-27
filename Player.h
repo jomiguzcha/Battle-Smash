@@ -1,8 +1,9 @@
 #include <iostream>
-using namespace std;
 #include "Sprite.h"
 #include "Keyboard.h"
 #include<sstream>
+
+using namespace std;
 class Player : public Sprite, public Keyboard {
 private:
 	int health;
