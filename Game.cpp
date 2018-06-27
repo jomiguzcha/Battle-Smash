@@ -13,6 +13,7 @@ Game::~Game()
 	al_destroy_event_queue(event_queue);
 	al_destroy_timer(timer);
 	al_destroy_display(display);
+	al_destroy_sample(sample);
 }
 
 int Game::init() {
@@ -47,6 +48,10 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 	}
 
 	al_init_image_addon();
+	al_install_audio(); 
+	al_init_acodec_addon();
+	al_reserve_samples(1);
+	sample = al_load_sample("Epic.wav");
 	al_install_keyboard();
 	
 
@@ -62,6 +67,7 @@ int Game::createWindow(float FPS, int ancho, int alto) {
 
 void Game::gameLoop() {
 	while (loop) {
+		al_play_sample(sample,1.0, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, NULL);
 	    draw_menu1();
 	    Loop();
 	    draw_menu2();
